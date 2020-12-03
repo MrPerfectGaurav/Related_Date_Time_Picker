@@ -195,15 +195,15 @@ setInterval(function () {
                     minDate: minDropTime,
                     maxDate: maxDropTime
                 });
-
+                
                 $('#dropTime').data("DateTimePicker").minDate(minDropTime);
                 $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
             } else {
                 const minDropTime = new Date();
-                minDropTime.setHours(parseInt(splitPickupTime[0] + 12));
+                minDropTime.setHours(parseInt(splitPickupTime[0]) + 12);
                 minDropTime.setHours(minDropTime.getHours() + 1);
                 minDropTime.setMinutes(parseInt(splitPickupTime[1]));
-                minDropTime.setSeconds(0);
+                minDropTime.setSeconds(00);
 
                 const maxDropTime = new Date();
                 maxDropTime.setHours(23);
@@ -216,9 +216,9 @@ setInterval(function () {
                     minDate: minDropTime,
                     maxDate: maxDropTime
                 });
-
-                $('#dropTime').data("DateTimePicker").minDate(minDropTime);
+                
                 $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
+                $('#dropTime').data("DateTimePicker").minDate(minDropTime);
             }
         }
     } else if ($("#pickupDate").val() != "" && $("#dropDate").val() != "" && $("#pickupDate").val() != $("#dropDate").val()) {
