@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <!--Date picker -->
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label class="control-label" for="pickupDate">Pickup Date</label>
+                    <input type="text" class="form-control" id="pickupDate">
+                </div>
+            </div>
+            <div class="col-sm">
+                <!--Time picker -->
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label class="control-label" for="pickupTime">Pickup Time</label>
+                    <input type="text" class="form-control" id="pickupTime">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <!--Date picker -->
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label class="control-label" for="dropDate">Pickup Date</label>
+                    <input type="text" class="form-control" id="dropDate">
+                </div>
+            </div>
+            <div class="col-sm">
+                <!--Time picker -->
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                    <label class="control-label" for="dropTime">Pickup Time</label>
+                    <input type="text" class="form-control" id="dropTime">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery JS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script type="text/javascript"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Propeller textfield js -->
+    <script type="text/javascript" src="./dist/js/propeller.min.js"></script>
+
+    <!-- Datepicker moment with locales -->
+    <script type="text/javascript" language="javascript"
+        src="./components/datetimepicker/js/moment-with-locales.js"></script>
+
+    <!-- Propeller Bootstrap datetimepicker -->
+    <script type="text/javascript" language="javascript"
+        src="./components/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
