@@ -54,6 +54,8 @@ setInterval(function () {
                 $('#pickupTime').data("DateTimePicker").minDate(minPickupTime);
             } else {
                 const minPickupTime = new Date();
+                minPickupTime.setMinutes(minPickupTime.getMinutes() + 30);
+                
                 const maxPickupTime = new Date();
                 maxPickupTime.setHours(20);
                 maxPickupTime.setMinutes(00);
@@ -63,10 +65,12 @@ setInterval(function () {
                     format: 'LT',
                     // useCurrent: false,
                     minDate: minPickupTime,
-                    maxDate: maxPickupTime
+                    maxDate: maxPickupTime,
+                    defaultDate: minPickupTime
                 });
                 $('#pickupTime').data("DateTimePicker").maxDate(maxPickupTime);
                 $('#pickupTime').data("DateTimePicker").minDate(minPickupTime);
+                // $('#pickupTime').data("DateTimePicker").defaultDate(minPickupTime);
             }
         } else {
             const minPickupTime = new Date();
