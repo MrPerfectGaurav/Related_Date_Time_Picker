@@ -23,6 +23,9 @@
                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
                     <label class="control-label" for="pickupTime">Pickup Time</label>
                     <input type="text" class="form-control" id="pickupTime">
+                    <small class="form-text text-muted">
+                        Pickup Time must be 30 minutes greater than the Current Time.
+                    </small>
                 </div>
             </div>
         </div>
@@ -40,6 +43,9 @@
                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
                     <label class="control-label" for="dropTime">Pickup Time</label>
                     <input type="text" class="form-control" id="dropTime">
+                    <small class="form-text text-muted">
+                        Drop Time must be an hour greater than the Pickup Time.
+                    </small>
                 </div>
             </div>
         </div>

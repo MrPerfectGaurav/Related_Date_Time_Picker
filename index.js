@@ -27,92 +27,110 @@ setInterval(function () {  // update in every second
 }, 1000);
 
 // Time Pickup Time only
-setInterval(function () {
-    let currentDate = new Date();
-    if ($("#pickupDate").val() != "") {
-        const pickupDate = $('#pickupDate').val().split("-");
-        const date = pickupDate[0];
-        if (currentDate.getDate() == date && currentDate.getHours() < 20) {
-            if (currentDate.getHours() < 6) {
-                const minPickupTime = new Date();
-                minPickupTime.setHours(6);
-                minPickupTime.setMinutes(00);
-                minPickupTime.setSeconds(00);
+const minPickupTime = new Date();
+minPickupTime.setHours(6);
+minPickupTime.setMinutes(00);
+minPickupTime.setSeconds(00);
 
-                const maxPickupTime = new Date();
-                maxPickupTime.setHours(20);
-                maxPickupTime.setMinutes(00);
-                maxPickupTime.setSeconds(00);
+const maxPickupTime = new Date();
+maxPickupTime.setHours(20);
+maxPickupTime.setMinutes(00);
+maxPickupTime.setSeconds(00);
 
-                $('#pickupTime').datetimepicker({
-                    format: 'LT',
-                    // useCurrent: false,
-                    minDate: minPickupTime,
-                    maxDate: maxPickupTime
-                });
-                $('#pickupTime').data("DateTimePicker").maxDate(maxPickupTime);
-                $('#pickupTime').data("DateTimePicker").minDate(minPickupTime);
-            } else {
-                const minPickupTime = new Date();
-                minPickupTime.setMinutes(minPickupTime.getMinutes() + 30);
-                
-                const maxPickupTime = new Date();
-                maxPickupTime.setHours(20);
-                maxPickupTime.setMinutes(00);
-                maxPickupTime.setSeconds(00);
+$('#pickupTime').datetimepicker({
+    format: 'LT',
+    // useCurrent: false,
+    // defaultDate: minPickupTime,
+    minDate: minPickupTime,
+    maxDate: maxPickupTime
+});
 
-                $('#pickupTime').datetimepicker({
-                    format: 'LT',
-                    // useCurrent: false,
-                    minDate: minPickupTime,
-                    maxDate: maxPickupTime,
-                    defaultDate: minPickupTime
-                });
-                $('#pickupTime').data("DateTimePicker").maxDate(maxPickupTime);
-                $('#pickupTime').data("DateTimePicker").minDate(minPickupTime);
-                // $('#pickupTime').data("DateTimePicker").defaultDate(minPickupTime);
-            }
-        } else {
-            const minPickupTime = new Date();
-            minPickupTime.setHours(6);
-            minPickupTime.setMinutes(0);
-            minPickupTime.setSeconds(0);
+// setInterval(function () {
+//     let currentDate = new Date();
+//     if ($("#pickupDate").val() != "") {
+//         const pickupDate = $('#pickupDate').val().split("-");
+//         const date = pickupDate[0];
+//         if (currentDate.getDate() == date && currentDate.getHours() < 20) {
+//             if (currentDate.getHours() < 6) {
+// const minPickupTime = new Date();
+// minPickupTime.setHours(6);
+// minPickupTime.setMinutes(00);
+// minPickupTime.setSeconds(00);
 
-            let maxPickupTime = new Date();
-            maxPickupTime.setHours(20);
-            maxPickupTime.setMinutes(00);
-            maxPickupTime.setSeconds(00);
+// const maxPickupTime = new Date();
+// maxPickupTime.setHours(20);
+// maxPickupTime.setMinutes(00);
+// maxPickupTime.setSeconds(00);
 
-            $('#pickupTime').datetimepicker({
-                format: 'LT',
-                // useCurrent: false,
-                minDate: minPickupTime,
-                maxDate: maxPickupTime
-            });
-            $('#pickupTime').data("DateTimePicker").maxDate(maxPickupTime);
-            $('#pickupTime').data("DateTimePicker").minDate(minPickupTime);
-        }
-    } else {
-        const minPickupTime = new Date();
-        minPickupTime.setHours(6);
-        minPickupTime.setMinutes(0);
-        minPickupTime.setSeconds(0);
+// $('#pickupTime').datetimepicker({
+//     format: 'LT',
+//     // useCurrent: false,
+//     minDate: minPickupTime,
+//     maxDate: maxPickupTime
+// });
+//                 $('#pickupTime').data("DateTimePicker").maxDate(maxPickupTime);
+//                 $('#pickupTime').data("DateTimePicker").minDate(minPickupTime);
+//             } else {
+//                 const minPickupTime = new Date();
+//                 minPickupTime.setMinutes(minPickupTime.getMinutes() + 30);
 
-        const maxPickupTime = new Date();
-        maxPickupTime.setHours(20);
-        maxPickupTime.setMinutes(00);
-        maxPickupTime.setSeconds(00);
+//                 const maxPickupTime = new Date();
+//                 maxPickupTime.setHours(20);
+//                 maxPickupTime.setMinutes(00);
+//                 maxPickupTime.setSeconds(00);
 
-        $('#pickupTime').datetimepicker({
-            format: 'LT',
-            // useCurrent: false,
-            minDate: minPickupTime,
-            maxDate: maxPickupTime
-        });
-        $('#pickupTime').data("DateTimePicker").minDate(minPickupTime);
-        $('#pickupTime').data("DateTimePicker").maxDate(maxPickupTime);
-    }
-}, 1000)
+//                 $('#pickupTime').datetimepicker({
+//                     format: 'LT',
+//                     // useCurrent: false,
+//                     minDate: minPickupTime,
+//                     maxDate: maxPickupTime,
+//                     defaultDate: minPickupTime
+//                 });
+//                 $('#pickupTime').data("DateTimePicker").maxDate(maxPickupTime);
+//                 $('#pickupTime').data("DateTimePicker").minDate(minPickupTime);
+//                 // $('#pickupTime').data("DateTimePicker").defaultDate(minPickupTime);
+//             }
+//         } else {
+//             const minPickupTime = new Date();
+//             minPickupTime.setHours(6);
+//             minPickupTime.setMinutes(0);
+//             minPickupTime.setSeconds(0);
+
+//             let maxPickupTime = new Date();
+//             maxPickupTime.setHours(20);
+//             maxPickupTime.setMinutes(00);
+//             maxPickupTime.setSeconds(00);
+
+//             $('#pickupTime').datetimepicker({
+//                 format: 'LT',
+//                 // useCurrent: false,
+//                 minDate: minPickupTime,
+//                 maxDate: maxPickupTime
+//             });
+//             $('#pickupTime').data("DateTimePicker").maxDate(maxPickupTime);
+//             $('#pickupTime').data("DateTimePicker").minDate(minPickupTime);
+//         }
+//     } else {
+//         const minPickupTime = new Date();
+//         minPickupTime.setHours(6);
+//         minPickupTime.setMinutes(0);
+//         minPickupTime.setSeconds(0);
+
+//         const maxPickupTime = new Date();
+//         maxPickupTime.setHours(20);
+//         maxPickupTime.setMinutes(00);
+//         maxPickupTime.setSeconds(00);
+
+//         $('#pickupTime').datetimepicker({
+//             format: 'LT',
+//             // useCurrent: false,
+//             minDate: minPickupTime,
+//             maxDate: maxPickupTime
+//         });
+//         $('#pickupTime').data("DateTimePicker").minDate(minPickupTime);
+//         $('#pickupTime').data("DateTimePicker").maxDate(maxPickupTime);
+//     }
+// }, 1000)
 
 // Date Drop Date only
 setInterval(function () {
@@ -154,117 +172,134 @@ setInterval(function () {
 }, 1000)
 
 // Time Drop Time only
-setInterval(function () {
-    if ($("#pickupDate").val() != "" && $("#dropDate").val() != "" && $("#pickupDate").val() == $("#dropDate").val()) {
-        const pickupTime = $("#pickupTime").val();
-        let splitPickupTime = pickupTime.split(":");
-        splitPickupTime = [splitPickupTime[0], ...splitPickupTime[1].split(" ")];
-        if (splitPickupTime[2] == "AM") {
-            const minDropTime = new Date();
-            minDropTime.setHours(parseInt(splitPickupTime[0]));
-            minDropTime.setHours(minDropTime.getHours() + 1);
-            minDropTime.setMinutes(parseInt(splitPickupTime[1]));
-            minDropTime.setSeconds(0);
+const minDropTime = new Date();
+minDropTime.setHours(6);
+minDropTime.setMinutes(00);
+minDropTime.setSeconds(00);
 
-            const maxDropTime = new Date();
-            maxDropTime.setHours(23);
-            maxDropTime.setMinutes(00);
-            maxDropTime.setSeconds(00);
+const maxDropTime = new Date();
+maxDropTime.setHours(23);
+maxDropTime.setMinutes(00);
+maxDropTime.setSeconds(00);
 
-            $('#dropTime').datetimepicker({
-                format: 'LT',
-                useCurrent: false,
-                minDate: minDropTime,
-                maxDate: maxDropTime
-            });
+$('#dropTime').datetimepicker({
+    format: 'LT',
+    // useCurrent: false,
+    minDate: minDropTime,
+    maxDate: maxDropTime
+});
 
-            $('#dropTime').data("DateTimePicker").minDate(minDropTime);
-            $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
-        } else if (splitPickupTime[2] == "PM") {
-            if (splitPickupTime[0] == "12") {
-                const minDropTime = new Date();
-                minDropTime.setHours(parseInt(splitPickupTime[0]));
-                minDropTime.setHours(minDropTime.getHours() + 1);
-                minDropTime.setMinutes(parseInt(splitPickupTime[1]));
-                minDropTime.setSeconds(0);
+// setInterval(function () {
+//     if ($("#pickupDate").val() != "" && $("#dropDate").val() != "" && $("#pickupDate").val() == $("#dropDate").val()) {
+//         const pickupTime = $("#pickupTime").val();
+//         let splitPickupTime = pickupTime.split(":");
+//         splitPickupTime = [splitPickupTime[0], ...splitPickupTime[1].split(" ")];
+//         if (splitPickupTime[2] == "AM") {
+//             const minDropTime = new Date();
+//             minDropTime.setHours(parseInt(splitPickupTime[0]));
+//             minDropTime.setHours(minDropTime.getHours() + 1);
+//             minDropTime.setMinutes(parseInt(splitPickupTime[1]));
+//             minDropTime.setSeconds(0);
 
-                const maxDropTime = new Date();
-                maxDropTime.setHours(23);
-                maxDropTime.setMinutes(00);
-                maxDropTime.setSeconds(00);
+//             const maxDropTime = new Date();
+//             maxDropTime.setHours(23);
+//             maxDropTime.setMinutes(00);
+//             maxDropTime.setSeconds(00);
 
-                $('#dropTime').datetimepicker({
-                    format: 'LT',
-                    useCurrent: false,
-                    minDate: minDropTime,
-                    maxDate: maxDropTime
-                });
-                
-                $('#dropTime').data("DateTimePicker").minDate(minDropTime);
-                $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
-            } else {
-                const minDropTime = new Date();
-                minDropTime.setHours(parseInt(splitPickupTime[0]) + 12);
-                minDropTime.setHours(minDropTime.getHours() + 1);
-                minDropTime.setMinutes(parseInt(splitPickupTime[1]));
-                minDropTime.setSeconds(00);
+//             $('#dropTime').datetimepicker({
+//                 format: 'LT',
+//                 useCurrent: false,
+//                 minDate: minDropTime,
+//                 maxDate: maxDropTime
+//             });
 
-                const maxDropTime = new Date();
-                maxDropTime.setHours(23);
-                maxDropTime.setMinutes(00);
-                maxDropTime.setSeconds(00);
+//             $('#dropTime').data("DateTimePicker").minDate(minDropTime);
+//             $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
+//         } else if (splitPickupTime[2] == "PM") {
+//             if (splitPickupTime[0] == "12") {
+//                 const minDropTime = new Date();
+//                 minDropTime.setHours(parseInt(splitPickupTime[0]));
+//                 minDropTime.setHours(minDropTime.getHours() + 1);
+//                 minDropTime.setMinutes(parseInt(splitPickupTime[1]));
+//                 minDropTime.setSeconds(0);
 
-                $('#dropTime').datetimepicker({
-                    format: 'LT',
-                    useCurrent: false,
-                    minDate: minDropTime,
-                    maxDate: maxDropTime
-                });
-                
-                $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
-                $('#dropTime').data("DateTimePicker").minDate(minDropTime);
-            }
-        }
-    } else if ($("#pickupDate").val() != "" && $("#dropDate").val() != "" && $("#pickupDate").val() != $("#dropDate").val()) {
-        const minDropTime = new Date();
-        minDropTime.setHours(6);
-        minDropTime.setMinutes(0);
-        minDropTime.setSeconds(0);
+//                 const maxDropTime = new Date();
+//                 maxDropTime.setHours(23);
+//                 maxDropTime.setMinutes(00);
+//                 maxDropTime.setSeconds(00);
 
-        const maxDropTime = new Date();
-        maxDropTime.setHours(23);
-        maxDropTime.setMinutes(00);
-        maxDropTime.setSeconds(00);
+//                 $('#dropTime').datetimepicker({
+//                     format: 'LT',
+//                     useCurrent: false,
+//                     minDate: minDropTime,
+//                     maxDate: maxDropTime
+//                 });
 
-        $('#dropTime').datetimepicker({
-            format: 'LT',
-            useCurrent: false,
-            maxDate: maxDropTime,
-            minDate: minDropTime
-        });
-        $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
-        $('#dropTime').data("DateTimePicker").minDate(minDropTime);
-    } else {
-        const minDropTime = new Date();
-        minDropTime.setHours(6);
-        minDropTime.setMinutes(00);
-        minDropTime.setSeconds(00);
+//                 $('#dropTime').data("DateTimePicker").minDate(minDropTime);
+//                 $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
+//             } else {
+//                 const minDropTime = new Date();
+//                 minDropTime.setHours(parseInt(splitPickupTime[0]) + 12);
+//                 minDropTime.setHours(minDropTime.getHours() + 1);
+//                 minDropTime.setMinutes(parseInt(splitPickupTime[1]));
+//                 minDropTime.setSeconds(00);
 
-        const maxDropTime = new Date();
-        maxDropTime.setHours(23);
-        maxDropTime.setMinutes(00);
-        maxDropTime.setSeconds(00);
+//                 const maxDropTime = new Date();
+//                 maxDropTime.setHours(23);
+//                 maxDropTime.setMinutes(00);
+//                 maxDropTime.setSeconds(00);
 
-        $('#dropTime').datetimepicker({
-            format: 'LT',
-            useCurrent: false,
-            minDate: minDropTime,
-            maxDate: maxDropTime
-        });
-        $('#dropTime').data("DateTimePicker").minDate(minDropTime);
-        $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
-    }
-}, 1000);
+//                 $('#dropTime').datetimepicker({
+//                     format: 'LT',
+//                     useCurrent: false,
+//                     minDate: minDropTime,
+//                     maxDate: maxDropTime
+//                 });
+
+//                 $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
+//                 $('#dropTime').data("DateTimePicker").minDate(minDropTime);
+//             }
+//         }
+//     } else if ($("#pickupDate").val() != "" && $("#dropDate").val() != "" && $("#pickupDate").val() != $("#dropDate").val()) {
+//         const minDropTime = new Date();
+//         minDropTime.setHours(6);
+//         minDropTime.setMinutes(0);
+//         minDropTime.setSeconds(0);
+
+//         const maxDropTime = new Date();
+//         maxDropTime.setHours(23);
+//         maxDropTime.setMinutes(00);
+//         maxDropTime.setSeconds(00);
+
+//         $('#dropTime').datetimepicker({
+//             format: 'LT',
+//             useCurrent: false,
+//             maxDate: maxDropTime,
+//             minDate: minDropTime
+//         });
+//         $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
+//         $('#dropTime').data("DateTimePicker").minDate(minDropTime);
+//     } else {
+// const minDropTime = new Date();
+// minDropTime.setHours(6);
+// minDropTime.setMinutes(00);
+// minDropTime.setSeconds(00);
+
+// const maxDropTime = new Date();
+// maxDropTime.setHours(23);
+// maxDropTime.setMinutes(00);
+// maxDropTime.setSeconds(00);
+
+// $('#dropTime').datetimepicker({
+//     format: 'LT',
+//     useCurrent: false,
+//     minDate: minDropTime,
+//     maxDate: maxDropTime
+// });
+//         $('#dropTime').data("DateTimePicker").minDate(minDropTime);
+//         $('#dropTime').data("DateTimePicker").maxDate(maxDropTime);
+//     }
+// }, 1000);
 
 function getPickup() {
     if ($("#pickupDate").val() !== "") {
