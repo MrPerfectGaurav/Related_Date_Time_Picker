@@ -137,14 +137,14 @@ setInterval(function () {
     if ($("#pickupDate").val() != "") {
         const pickupDate = $('#pickupDate').val().split("-");
         const currentDate = new Date();
-        const miliseconds = currentDate.getMilliseconds();
-        const seconds = currentDate.getSeconds();
-        const minutes = currentDate.getMinutes();
-        const hours = currentDate.getHours();
+        // const miliseconds = currentDate.getMilliseconds();
+        // const seconds = currentDate.getSeconds();
+        // const minutes = currentDate.getMinutes();
+        // const hours = currentDate.getHours();
         const day = pickupDate[0];
         const month = pickupDate[1];
         const year = pickupDate[2];
-        const minDropDate = new Date(year, month - 1, day, hours, minutes, seconds, miliseconds);
+        const minDropDate = new Date(year, month - 1, day, 0, 0, 0, 0);
         const maxDropDate = new Date(minDropDate.getTime() + 10 * 24 * 60 * 60 * 1000);
 
         $('#dropDate').datetimepicker({
@@ -157,9 +157,12 @@ setInterval(function () {
         $('#dropDate').data("DateTimePicker").maxDate(maxDropDate);
     } else {
         const currentDate = new Date();
-        const minDropDate = new Date(currentDate.getTime());
-        const maxDropDate = new Date(minDropDate.getTime() + 10 * 24 * 60 * 60 * 1000);
-
+        const maxDropDate = new Date(currentDate.getTime() + 10 * 24 * 60 * 60 * 1000);
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        const date = currentDate.getDate();
+        const minDropDate = new Date(year, month, date, 0, 0, 0, 0);
+        
         $('#dropDate').datetimepicker({
             format: 'DD-MM-YYYY',
             useCurrent: false,
